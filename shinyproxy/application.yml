@@ -1,0 +1,23 @@
+proxy:
+  title: "My Shiny Apps"
+  port: 8080
+  authentication: simple
+  users:
+    - name: admin
+      password: changeme
+  docker:
+    internal-networking: true
+    url: http://localhost:2375
+  specs:
+    - id: hello
+      display-name: "Hello Shiny"
+      container-image: zhongyuli2026/shiny-001-hello:latest
+      port: 3838
+    - id: tabsets
+      display-name: "Tabsets"
+      container-image: zhongyuli2026/shiny-006-tabsets:latest
+      port: 3838
+    - id: kmeans
+      display-name: "K-Means Clustering"
+      container-image: zhongyuli2026/shiny-050-kmeans-example:latest
+      port: 3838
