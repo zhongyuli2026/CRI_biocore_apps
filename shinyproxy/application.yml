@@ -11,13 +11,13 @@ proxy:
   specs:
     - id: hello
       display-name: "Hello Shiny"
-      container-image: zhongyuli2026/shiny-001-hello:latest
+      container-image: ghcr.io/zhongyuli2026/shiny-001-hello:latest
       port: 3838
     - id: tabsets
       display-name: "Tabsets"
-      container-image: zhongyuli2026/shiny-006-tabsets:latest
+      container-image: ghcr.io/zhongyuli2026/shiny-006-tabsets:latest
       port: 3838
     - id: kmeans
       display-name: "K-Means Clustering"
-      container-image: zhongyuli2026/shiny-050-kmeans-example:latest
+      container-image: ghcr.io/zhongyuli2026/shiny-050-kmeans-example:latest
       port: 3838
