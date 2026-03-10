@@ -10,7 +10,7 @@ proxy:
     - name: admin
       password: changeme
   docker:
-    internal-networking: true
+    internal-networking: false
     url: http://localhost:2375
   specs:
     - id: hello
