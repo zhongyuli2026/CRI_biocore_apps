@@ -1,3 +1,7 @@
+server:
+  servlet:
+    context-path: /apps
+
 proxy:
   title: "My Shiny Apps"
   port: 8080
