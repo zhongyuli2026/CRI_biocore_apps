@@ -43,7 +43,7 @@ jobs:
           username: ${{ secrets.RHEL_USER }}
           key: ${{ secrets.RHEL_SSH_KEY }}
           source: "shinyproxy/application.yml"
-          target: "/opt/shinyproxy/"
+          target: "/etc/shinyproxy/"
           strip_components: 1
       - uses: appleboy/ssh-action@v1.0.3
         with:
