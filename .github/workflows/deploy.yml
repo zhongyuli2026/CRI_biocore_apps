@@ -34,26 +34,15 @@ jobs:
 
   deploy:
     needs: build-and-push
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@v4
-      - uses: appleboy/scp-action@v0.1.7
-        with:
-          host: ${{ secrets.RHEL_HOST }}
-          username: ${{ secrets.RHEL_USER }}
-          key: ${{ secrets.RHEL_SSH_KEY }}
-          source: "shinyproxy/application.yml"
-          target: "/etc/shinyproxy/"
-          strip_components: 1
-      - uses: appleboy/ssh-action@v1.0.3
-        with:
-          host: ${{ secrets.RHEL_HOST }}
-          username: ${{ secrets.RHEL_USER }}
-          key: ${{ secrets.RHEL_SSH_KEY }}
-          script: |
-            echo ${{ secrets.GHCR_TOKEN }} | docker login ghcr.io -u ${{ secrets.GHCR_USER }} --password-stdin
-            docker pull ghcr.io/${{ secrets.GHCR_USER }}/shiny-001-hello:latest
-            docker pull ghcr.io/${{ secrets.GHCR_USER }}/shiny-006-tabsets:latest
-            docker pull ghcr.io/${{ secrets.GHCR_USER }}/shiny-050-kmeans-example:latest
-            sudo systemctl restart shinyproxy
-            docker image prune -f
+      - name: Deploy
+        run: |
+          sudo cp shinyproxy/application.yml /etc/shinyproxy/application.yml
+          echo ${{ secrets.GHCR_TOKEN }} | docker login ghcr.io -u ${{ secrets.GHCR_USER }} --password-stdin
+          docker pull ghcr.io/${{ secrets.GHCR_USER }}/shiny-001-hello:latest
+          docker pull ghcr.io/${{ secrets.GHCR_USER }}/shiny-006-tabsets:latest
+          docker pull ghcr.io/${{ secrets.GHCR_USER }}/shiny-050-kmeans-example:latest
+          sudo systemctl restart shinyproxy
+          docker image prune -f
