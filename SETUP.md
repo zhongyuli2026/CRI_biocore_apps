@@ -236,8 +236,22 @@ ShinyProxy login page: `https://biocoreapps.bsd.uchicago.edu/apps/login`
 
 1. Create `apps/<app-name>/Dockerfile` in the repo
 2. Add the app to the matrix in `deploy.yml`
-3. Add the app spec to `shinyproxy/application.yml`
-4. Push to `main` — the workflow builds, pushes, and deploys automatically
+3. Add a `docker pull` line for the new image in the deploy job in `deploy.yml`
+4. Add the app spec to `shinyproxy/application.yml`
+5. Push to `main` — the workflow builds, pushes, and deploys automatically
+
+---
+
+## Docker Build Caching
+
+Every push rebuilds all apps in the matrix. To avoid slow full rebuilds for unchanged apps, the workflow uses **registry-based Docker layer caching**:
+
+```yaml
+cache-from: type=registry,ref=ghcr.io/<owner>/<image>:cache
+cache-to: type=registry,ref=ghcr.io/<owner>/<image>:cache,mode=max
+```
+
+If a `Dockerfile` and app files haven't changed since the last build, Docker reuses cached layers and the build completes in seconds. Only apps with actual changes do a full rebuild.
 
 ---
 
@@ -246,3 +260,5 @@ ShinyProxy login page: `https://biocoreapps.bsd.uchicago.edu/apps/login`
 - `internal-networking: false` is required because ShinyProxy runs as a Java process (not in Docker) and cannot join Docker networks
 - `context-path: /apps` aligns ShinyProxy's URL structure with the nginx `/apps/` location block
 - The self-hosted runner is used because the university perimeter firewall blocks inbound port 22 from GitHub Actions IPs
+- SELinux on RHEL blocks execution of scripts in `/srv` by default — fix with `sudo chcon -R -t bin_t /srv/actions-runner/` before starting the runner service
+- `shinyproxy/application.yml` in the repo is the single source of truth — never edit it directly on the server as it will be overwritten on the next deploy

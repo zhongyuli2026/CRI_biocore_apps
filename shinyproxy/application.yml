@@ -5,7 +5,7 @@ server:
 proxy:
   title: "My Shiny Apps"
   port: 8080
-  authentication: simple
+  authentication: none
   users:
     - name: admin
       password: changeme
