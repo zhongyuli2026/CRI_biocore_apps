@@ -43,11 +43,11 @@ jobs:
       - uses: actions/checkout@v4
       - name: Deploy
         run: |
-          /usr/bin/cp shinyproxy/application.yml /etc/shinyproxy/application.yml
+          sudo /usr/bin/cp shinyproxy/application.yml /etc/shinyproxy/application.yml
           echo ${{ secrets.GHCR_TOKEN }} | docker login ghcr.io -u ${{ secrets.GHCR_USER }} --password-stdin
           docker pull ghcr.io/${{ secrets.GHCR_USER }}/shiny-001-hello:latest
           docker pull ghcr.io/${{ secrets.GHCR_USER }}/shiny-006-tabsets:latest
           docker pull ghcr.io/${{ secrets.GHCR_USER }}/shiny-050-kmeans-example:latest
           docker pull ghcr.io/${{ secrets.GHCR_USER }}/shiny-deapp:latest
-          systemctl restart shinyproxy
+          sudo /usr/bin/systemctl restart shinyproxy
           docker system prune -f
