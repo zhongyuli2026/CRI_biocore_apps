@@ -25,3 +25,7 @@ proxy:
       display-name: "K-Means Clustering"
       container-image: ghcr.io/zhongyuli2026/shiny-050-kmeans-example:latest
       port: 3838
+    - id: deapp
+      display-name: "DEApp"
+      container-image: ghcr.io/zhongyuli2026/shiny-deapp:latest
+      port: 3838

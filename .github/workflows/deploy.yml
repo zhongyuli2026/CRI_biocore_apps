@@ -18,6 +18,8 @@ jobs:
             image: shiny-006-tabsets
           - name: 050-kmeans-example
             image: shiny-050-kmeans-example
+          - name: DEApp-master
+            image: shiny-deapp
     steps:
       - uses: actions/checkout@v4
       - uses: docker/login-action@v3
@@ -44,5 +46,6 @@ jobs:
           docker pull ghcr.io/${{ secrets.GHCR_USER }}/shiny-001-hello:latest
           docker pull ghcr.io/${{ secrets.GHCR_USER }}/shiny-006-tabsets:latest
           docker pull ghcr.io/${{ secrets.GHCR_USER }}/shiny-050-kmeans-example:latest
+          docker pull ghcr.io/${{ secrets.GHCR_USER }}/shiny-deapp:latest
           sudo systemctl restart shinyproxy
           docker image prune -f
