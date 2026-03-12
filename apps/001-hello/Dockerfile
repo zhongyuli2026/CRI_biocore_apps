@@ -9,7 +9,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 RUN Rscript -e "install.packages(c('shiny'), repos='https://cran.rstudio.com/')"
 
 # Copy app source
-COPY . /srv/shiny-server/app/
+RUN rm -rf /srv/shiny-server/*
+COPY . /srv/shiny-server/
 
 EXPOSE 3838
 CMD ["/usr/bin/shiny-server"]
