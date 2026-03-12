@@ -18,8 +18,8 @@ jobs:
             image: shiny-006-tabsets
           - name: 050-kmeans-example
             image: shiny-050-kmeans-example
-          # - name: DEApp-master
-          #   image: shiny-deapp
+          - name: DEApp-master
+            image: shiny-deapp
           - name: feavis
             image: shiny-feavis
     steps:
