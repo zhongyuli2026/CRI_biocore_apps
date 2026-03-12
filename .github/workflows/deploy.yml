@@ -18,8 +18,8 @@ jobs:
             image: shiny-006-tabsets
           - name: 050-kmeans-example
             image: shiny-050-kmeans-example
-          - name: DEApp-master
-            image: shiny-deapp
+          # - name: DEApp-master
+          #   image: shiny-deapp
           - name: feavis
             image: shiny-feavis
     steps:
@@ -50,7 +50,7 @@ jobs:
           docker pull ghcr.io/${{ secrets.GHCR_USER }}/shiny-001-hello:latest
           docker pull ghcr.io/${{ secrets.GHCR_USER }}/shiny-006-tabsets:latest
           docker pull ghcr.io/${{ secrets.GHCR_USER }}/shiny-050-kmeans-example:latest
-          docker pull ghcr.io/${{ secrets.GHCR_USER }}/shiny-deapp:latest
+          # docker pull ghcr.io/${{ secrets.GHCR_USER }}/shiny-deapp:latest
           docker pull ghcr.io/${{ secrets.GHCR_USER }}/shiny-feavis:latest
           sudo /usr/bin/systemctl restart shinyproxy
           docker system prune -f
