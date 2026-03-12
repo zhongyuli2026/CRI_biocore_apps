@@ -37,3 +37,9 @@ proxy:
       logo-url: "https://cdn-icons-png.flaticon.com/512/2103/2103600.png"
       container-image: ghcr.io/zhongyuli2026/shiny-deapp:latest
       port: 3838
+    - id: feavis
+      display-name: "FEAVis"
+      description: "Functional enrichment analysis visualization."
+      logo-url: "https://cdn-icons-png.flaticon.com/512/2103/2103633.png"
+      container-image: ghcr.io/zhongyuli2026/shiny-feavis:latest
+      port: 3838
