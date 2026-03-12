@@ -1,4 +1,4 @@
-packages <- c("shinydashboard", "dplyr", "shinyWidgets", "shinyjs", "DT", "shiny", "ggplot2")
+packages <- c("shinydashboard", "dplyr", "shinyWidgets", "shinyjs", "shinyFiles", "DT", "shiny", "ggplot2")
 if (length(setdiff(packages, rownames(installed.packages()))) > 0) {
   install.packages(setdiff(packages, rownames(installed.packages())))  
 }
