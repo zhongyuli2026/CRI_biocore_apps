@@ -54,6 +54,6 @@ jobs:
           docker pull ghcr.io/${{ secrets.GHCR_USER }}/shiny-050-kmeans-example:latest
           # docker pull ghcr.io/${{ secrets.GHCR_USER }}/shiny-deapp:latest
           docker pull ghcr.io/${{ secrets.GHCR_USER }}/shiny-feavis:latest
-	  docker pull ghcr.io/${{ secrets.GHCR_USER }}/shiny-test1:latest
+          docker pull ghcr.io/${{ secrets.GHCR_USER }}/shiny-test1:latest
           sudo /usr/bin/systemctl restart shinyproxy
           docker system prune -f
