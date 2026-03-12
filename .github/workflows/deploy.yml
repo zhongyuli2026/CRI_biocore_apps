@@ -22,6 +22,8 @@ jobs:
             image: shiny-deapp
           - name: feavis
             image: shiny-feavis
+	  - name: test1_demo
+	    image: shiny_test1
     steps:
       - uses: actions/checkout@v4
       - uses: docker/login-action@v3
@@ -52,5 +54,6 @@ jobs:
           docker pull ghcr.io/${{ secrets.GHCR_USER }}/shiny-050-kmeans-example:latest
           # docker pull ghcr.io/${{ secrets.GHCR_USER }}/shiny-deapp:latest
           docker pull ghcr.io/${{ secrets.GHCR_USER }}/shiny-feavis:latest
+	  docker pull ghcr.io/${{ secrets.GHCR_USER }}/shiny_test1:latest
           sudo /usr/bin/systemctl restart shinyproxy
           docker system prune -f

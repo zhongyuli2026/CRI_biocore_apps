@@ -43,3 +43,9 @@ proxy:
       logo-url: "https://cdn-icons-png.flaticon.com/512/2103/2103633.png"
       container-image: ghcr.io/zhongyuli2026/shiny-feavis:latest
       port: 3838
+    - id: test_yanli
+      display-name: "test1 yan"
+      description: "test demo with zhongyu, operated by Yan"
+      logo-url: "https://img.freepik.com/free-vector/bird-colorful-gradient-design-vector_343694-2506.jpg?semt=ais_rp_progressive&w=740&q=80"
+      container-image: ghcr.io/zhongyuli2026/shiny_test1:latest
+      port: 3838
