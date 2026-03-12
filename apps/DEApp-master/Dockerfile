@@ -10,7 +10,7 @@ RUN R -e "install.packages('BiocManager')" \
  && R -e "install.packages(c('shinydashboard', 'DT', 'shiny', 'ggplot2', 'gplots'))" \
  && R -e "BiocManager::install(c('edgeR', 'DESeq2', 'limma'))"
 
-COPY . /srv/shiny-server/
+COPY . /srv/shiny-server/app/
 
 EXPOSE 3838
 

@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y \
 
 RUN R -e "install.packages(c('shinydashboard', 'dplyr', 'shinyWidgets', 'shinyjs', 'DT', 'shiny', 'ggplot2'))"
 
-COPY . /srv/shiny-server/
+COPY . /srv/shiny-server/app/
 
 EXPOSE 3838
 
