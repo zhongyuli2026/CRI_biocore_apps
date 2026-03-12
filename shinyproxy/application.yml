@@ -47,5 +47,5 @@ proxy:
       display-name: "test1 yan"
       description: "test demo with zhongyu, operated by Yan"
       logo-url: "https://img.freepik.com/free-vector/bird-colorful-gradient-design-vector_343694-2506.jpg?semt=ais_rp_progressive&w=740&q=80"
-      container-image: ghcr.io/zhongyuli2026/shiny_test1:latest
+      container-image: ghcr.io/zhongyuli2026/shiny-test1:latest
       port: 3838
