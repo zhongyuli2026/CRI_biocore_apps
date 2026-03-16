@@ -7,13 +7,10 @@ proxy:
   port: 8080
   authentication: ldap
   ldap:
-    url: ldaps://ldap.uchicago.edu:636
-    manager-dn: cn=readonly,dc=uchicago,dc=edu
-    manager-password: ${LDAP_MANAGER_PASSWORD}
-    user-search-base: ou=people,dc=uchicago,dc=edu
+    url: ldaps://ldap.bsdad.uchicago.edu:3268
+    user-search-base: dc=bsdad,dc=uchicago,dc=edu
     user-search-filter: (uid={0})
-    group-search-base: ou=groups,dc=uchicago,dc=edu
-    group-search-filter: (memberUid={0})
+    user-dn-pattern: "{0}@bsdad"
   docker:
     internal-networking: false
     url: http://localhost:2375
