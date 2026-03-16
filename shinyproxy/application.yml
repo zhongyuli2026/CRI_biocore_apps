@@ -7,10 +7,9 @@ proxy:
   port: 8080
   authentication: ldap
   ldap:
-    url: ldaps://ldap.bsdad.uchicago.edu:3268
+    url: ldap://ldap.bsdad.uchicago.edu:3268
     user-search-base: dc=bsdad,dc=uchicago,dc=edu
-    user-search-filter: (uid={0})
-    user-dn-pattern: "{0}@bsdad"
+    user-search-filter: (sAMAccountName={0})
   docker:
     internal-networking: false
     url: http://localhost:2375
