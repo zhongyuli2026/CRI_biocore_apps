@@ -7,10 +7,10 @@ proxy:
   port: 8080
   authentication: ldap
   ldap:
-    url: ldaps://ldap.uchicago.edu:636
+    url: ldaps://ldap.uchicago.edu:636/dc=uchicago,dc=edu
     manager-dn: uid=criucldap,ou=people,dc=uchicago,dc=edu
     manager-password: ${LDAP_MANAGER_PASSWORD}
-    user-search-base: ou=people,dc=uchicago,dc=edu
+    user-search-base: ou=people
     user-search-filter: (&(uid={0})(objectClass=person))
   docker:
     internal-networking: false
