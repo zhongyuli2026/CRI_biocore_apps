@@ -46,16 +46,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Deploy
+        env:
+          LDAP_MANAGER_PASSWORD: ${{ secrets.LDAP_MANAGER_PASSWORD }}
         run: |
           sudo /usr/bin/cp shinyproxy/application.yml /etc/shinyproxy/application.yml
-          sudo python3 -c "
-import re
-with open('/etc/shinyproxy/application.yml', 'r') as f:
-    content = f.read()
-content = content.replace('\${LDAP_MANAGER_PASSWORD}', '${{ secrets.LDAP_MANAGER_PASSWORD }}')
-with open('/etc/shinyproxy/application.yml', 'w') as f:
-    f.write(content)
-"
+          sudo env LDAP_MANAGER_PASSWORD="$LDAP_MANAGER_PASSWORD" python3 -c "import os; f='/etc/shinyproxy/application.yml'; open(f,'w').write(open(f).read().replace('\${LDAP_MANAGER_PASSWORD}',os.environ['LDAP_MANAGER_PASSWORD']))"
           echo ${{ secrets.GHCR_TOKEN }} | docker login ghcr.io -u ${{ secrets.GHCR_USER }} --password-stdin
           docker pull ghcr.io/${{ secrets.GHCR_USER }}/shiny-001-hello:latest
           docker pull ghcr.io/${{ secrets.GHCR_USER }}/shiny-006-tabsets:latest
