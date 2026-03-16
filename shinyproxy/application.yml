@@ -1,6 +1,7 @@
 server:
   servlet:
     context-path: /apps
+  forward-headers-strategy: native
 
 proxy:
   title: "My Shiny Apps"
