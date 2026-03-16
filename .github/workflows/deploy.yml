@@ -48,6 +48,7 @@ jobs:
       - name: Deploy
         run: |
           sudo /usr/bin/cp shinyproxy/application.yml /etc/shinyproxy/application.yml
+          sudo sed -i 's|${LDAP_MANAGER_PASSWORD}|${{ secrets.LDAP_MANAGER_PASSWORD }}|g' /etc/shinyproxy/application.yml
           echo ${{ secrets.GHCR_TOKEN }} | docker login ghcr.io -u ${{ secrets.GHCR_USER }} --password-stdin
           docker pull ghcr.io/${{ secrets.GHCR_USER }}/shiny-001-hello:latest
           docker pull ghcr.io/${{ secrets.GHCR_USER }}/shiny-006-tabsets:latest
