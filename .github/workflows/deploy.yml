@@ -51,14 +51,7 @@ jobs:
           TESTUSER1_PASSWORD: ${{ secrets.TESTUSER1_PASSWORD }}
         run: |
           sudo /usr/bin/cp shinyproxy/application.yml /etc/shinyproxy/application.yml
-          sudo env LDAP_MANAGER_PASSWORD="$LDAP_MANAGER_PASSWORD" TESTUSER1_PASSWORD="$TESTUSER1_PASSWORD" python3 -c "
-import os
-f = '/etc/shinyproxy/application.yml'
-c = open(f).read()
-c = c.replace('\${LDAP_MANAGER_PASSWORD}', os.environ['LDAP_MANAGER_PASSWORD'])
-c = c.replace('\${TESTUSER1_PASSWORD}', os.environ['TESTUSER1_PASSWORD'])
-open(f, 'w').write(c)
-"
+          sudo env LDAP_MANAGER_PASSWORD="$LDAP_MANAGER_PASSWORD" TESTUSER1_PASSWORD="$TESTUSER1_PASSWORD" python3 -c "import os; f='/etc/shinyproxy/application.yml'; c=open(f).read().replace('\${LDAP_MANAGER_PASSWORD}',os.environ['LDAP_MANAGER_PASSWORD']).replace('\${TESTUSER1_PASSWORD}',os.environ['TESTUSER1_PASSWORD']); open(f,'w').write(c)"
           echo ${{ secrets.GHCR_TOKEN }} | docker login ghcr.io -u ${{ secrets.GHCR_USER }} --password-stdin
           docker pull ghcr.io/${{ secrets.GHCR_USER }}/shiny-001-hello:latest
           docker pull ghcr.io/${{ secrets.GHCR_USER }}/shiny-006-tabsets:latest
