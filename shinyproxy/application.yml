@@ -19,36 +19,30 @@ proxy:
     - id: hello
       display-name: "Hello Shiny"
       description: "A simple Hello World Shiny app."
-      logo-url: "https://cdn-icons-png.flaticon.com/512/1087/1087927.png"
       container-image: ghcr.io/zhongyuli2026/shiny-001-hello:latest
       port: 3838
     - id: tabsets
       display-name: "Tabsets"
       description: "Demonstrates tabset panels in Shiny."
-      logo-url: "https://cdn-icons-png.flaticon.com/512/2103/2103633.png"
       container-image: ghcr.io/zhongyuli2026/shiny-006-tabsets:latest
       port: 3838
     - id: kmeans
       display-name: "K-Means Clustering"
       description: "Interactive K-Means clustering visualization."
-      logo-url: "https://cdn-icons-png.flaticon.com/512/2103/2103658.png"
       container-image: ghcr.io/zhongyuli2026/shiny-050-kmeans-example:latest
       port: 3838
     - id: deapp
       display-name: "DEApp"
       description: "Differential expression analysis using edgeR, DESeq2, and limma."
-      logo-url: "https://cdn-icons-png.flaticon.com/512/2103/2103600.png"
       container-image: ghcr.io/zhongyuli2026/shiny-deapp:latest
       port: 3838
     - id: feavis
       display-name: "FEAVis"
       description: "Functional enrichment analysis visualization."
-      logo-url: "https://cdn-icons-png.flaticon.com/512/2103/2103633.png"
       container-image: ghcr.io/zhongyuli2026/shiny-feavis:latest
       port: 3838
     - id: test_yanli
       display-name: "test1 yan"
       description: "test demo with zhongyu, operated by Yan"
-      logo-url: "https://img.freepik.com/free-vector/bird-colorful-gradient-design-vector_343694-2506.jpg?semt=ais_rp_progressive&w=740&q=80"
       container-image: ghcr.io/zhongyuli2026/shiny-test1:latest
       port: 3838
