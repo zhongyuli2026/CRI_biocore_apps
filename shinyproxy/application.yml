@@ -5,13 +5,17 @@ server:
 proxy:
   title: "My Shiny Apps"
   port: 8080
-  authentication: ldap
+  authentication: mixed
   ldap:
     url: ldaps://ldap.uchicago.edu:636/dc=uchicago,dc=edu
     manager-dn: uid=criucldap,ou=people,dc=uchicago,dc=edu
     manager-password: ${LDAP_MANAGER_PASSWORD}
     user-search-base: ou=people
     user-search-filter: (&(uid={0})(objectClass=person))
+  users:
+    - name: testuser1
+      password: ${TESTUSER1_PASSWORD}
+      groups: users
   docker:
     internal-networking: false
     url: http://localhost:2375
