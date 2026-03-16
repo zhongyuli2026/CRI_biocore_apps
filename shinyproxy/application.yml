@@ -5,6 +5,7 @@ server:
 proxy:
   title: "My Shiny Apps"
   port: 8080
+  landing-page: /
   authentication: ldap
   ldap:
     url: ldaps://ldap.uchicago.edu:636/dc=uchicago,dc=edu
