@@ -2,6 +2,11 @@ server:
   servlet:
     context-path: /public
   forward-headers-strategy: native
+  port: 8082
+
+management:
+  server:
+    port: 9092
 
 proxy:
   title: "Bioinformatics Core Shiny Apps"
