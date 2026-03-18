@@ -1,0 +1,19 @@
+server:
+  servlet:
+    context-path: /public
+  forward-headers-strategy: native
+
+proxy:
+  title: "Bioinformatics Core Shiny Apps"
+  port: 8081
+  landing-page: /
+  authentication: none
+  docker:
+    internal-networking: false
+    url: http://localhost:2375
+  specs:
+    - id: deapp
+      display-name: "DEApp"
+      description: "Differential expression analysis using edgeR, DESeq2, and limma."
+      container-image: ghcr.io/zhongyuli2026/shiny-deapp:latest
+      port: 3838
