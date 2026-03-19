@@ -124,11 +124,8 @@
                 <p th:text="${app.description}">App description goes here.</p>
                 <a th:href="@{/app/{id}(id=${app.id})}" class="btn-launch">Launch App</a>
             </div>
-            <div class="image" th:if="${app.logoUrl != null}">
-                <img th:src="${app.logoUrl}" th:alt="${app.displayName}" />
-            </div>
-            <div class="image" th:if="${app.logoUrl == null}">
-                <img src="/images/banner.jpg" alt="Shiny App" />
+            <div class="image">
+                <img src="/images/bioinfo_scientists.jpg" th:alt="${app.displayName}" />
             </div>
         </section>
     </div>

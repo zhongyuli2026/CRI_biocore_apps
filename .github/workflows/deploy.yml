@@ -51,7 +51,7 @@ jobs:
         run: |
           sudo /usr/bin/cp shinyproxy/application.yml /etc/shinyproxy/application.yml
           sudo /usr/bin/cp shinyproxy/application-public.yml /etc/shinyproxy/application-public.yml
-          sudo /usr/bin/cp -r shinyproxy/templates /etc/shinyproxy/templates
+          sudo /usr/bin/cp shinyproxy/templates/index.html /etc/shinyproxy/templates/index.html
           sudo env LDAP_MANAGER_PASSWORD="$LDAP_MANAGER_PASSWORD" python3 -c "import os; f='/etc/shinyproxy/application.yml'; c=open(f).read().replace('\${LDAP_MANAGER_PASSWORD}',os.environ['LDAP_MANAGER_PASSWORD']); open(f,'w').write(c)"
           echo ${{ secrets.GHCR_TOKEN }} | docker login ghcr.io -u ${{ secrets.GHCR_USER }} --password-stdin
           docker pull ghcr.io/${{ secrets.GHCR_USER }}/shiny-001-hello:latest
