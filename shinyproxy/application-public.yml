@@ -12,6 +12,7 @@ proxy:
   title: "Bioinformatics Core Shiny Apps"
   port: 8082
   landing-page: /
+  template-path: /etc/shinyproxy/templates
   authentication: none
   docker:
     internal-networking: false
