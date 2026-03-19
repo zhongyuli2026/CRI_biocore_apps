@@ -22,7 +22,7 @@ proxy:
     - id: hello
       display-name: "Hello Shiny"
       description: "A simple Hello World Shiny app."
-      logo-url: "/images/pic01.jpg"
+      logo-url: "/images/bioinfo_scientists.jpg"
       container-image: ghcr.io/zhongyuli2026/shiny-001-hello:latest
       port: 3838
     - id: tabsets
@@ -46,6 +46,6 @@ proxy:
     - id: test_yanli
       display-name: "test1 yan"
       description: "test demo with zhongyu, operated by Yan"
-      logo-url: "/images/pic02.jpg"
+      logo-url: "/images/bioinfo_scientists.jpg"
       container-image: ghcr.io/zhongyuli2026/shiny-test1:latest
       port: 3838
