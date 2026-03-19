@@ -124,8 +124,14 @@
                 <p th:text="${app.description}">App description goes here.</p>
                 <a th:href="@{/app/{id}(id=${app.id})}" class="btn-launch">Launch App</a>
             </div>
-            <div class="image">
-                <img src="/images/bioinfo_scientists.jpg" th:alt="${app.displayName}" />
+            <div class="image"
+                 th:with="imgSrc=${app.id == 'deapp'} ? '/images/deanalysis.jpg' :
+                          (${app.id == 'feavis'} ? '/images/spotlight01.jpg' :
+                          (${app.id == 'kmeans'} ? '/images/spotlight02.jpg' :
+                          (${app.id == 'tabsets'} ? '/images/spotlight03.jpg' :
+                          (${app.id == 'test_yanli'} ? '/images/cuffdiff.jpg' :
+                          '/images/banner.jpg'))))">
+                <img th:src="${imgSrc}" th:alt="${app.displayName}" />
             </div>
         </section>
     </div>
