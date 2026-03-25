@@ -22,6 +22,8 @@ RUN R -e "install.packages('BiocManager')"
 RUN rm -rf /srv/shiny-server/*
 COPY . /srv/shiny-server/
 
+RUN echo 'RENV_CONFIG_AUTOLOADER_ENABLED=FALSE' >> /usr/local/lib/R/etc/Renviron
+
 EXPOSE 3838
 
 CMD ["/usr/bin/shiny-server"]
