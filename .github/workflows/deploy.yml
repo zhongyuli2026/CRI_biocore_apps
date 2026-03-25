@@ -26,7 +26,7 @@ jobs:
             image: shiny-test1
           - name: scvizapp
             image: shiny-scvizapp
-  steps:
+    steps:
       - uses: actions/checkout@v4
       - uses: docker/login-action@v3
         with:
