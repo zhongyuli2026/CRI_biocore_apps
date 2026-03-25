@@ -49,3 +49,9 @@ proxy:
       logo-url: "/images/bioinfo_scientists.jpg"
       container-image: ghcr.io/zhongyuli2026/shiny-test1:latest
       port: 3838
+    - id: scvizapp
+      display-name: "scVizApp"
+      description: "scRNASeq Visualization Application"
+      logo-url: "/images/bioinfo_scientists.jpg"
+      container-image: ghcr.io/zhongyuli2026/shiny-scvizapp:latest
+      port: 3838
