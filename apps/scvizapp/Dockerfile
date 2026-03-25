@@ -8,11 +8,11 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Install R packages
-RUN R -e "install.packages(c("dplyr", "Seurat", "SeuratObject", "stringr", "tidyr",
-  "renv", "cowplot", "ggplot2", "grid", "patchwork", "readr",
-  "readxl", "reshape2", "stringi", "tibble",
-  "shiny", "tools", "bslib", "DT",
-  "shinydashboard", "shinyWidgets", "shinyjs"))"
+RUN R -e "install.packages(c('dplyr', 'Seurat', 'SeuratObject', 'stringr', 'tidyr',
+  'renv', 'cowplot', 'ggplot2', 'grid', 'patchwork', 'readr',
+  'readxl', 'reshape2', 'stringi', 'tibble',
+  'shiny', 'tools', 'bslib', 'DT',
+  'shinydashboard', 'shinyWidgets', 'shinyjs'))"
 
 # For Bioconductor packages
 RUN R -e "install.packages('BiocManager')"
