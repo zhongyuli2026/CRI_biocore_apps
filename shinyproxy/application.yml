@@ -55,8 +55,3 @@ proxy:
       logo-url: "/images/bioinfo_scientists.jpg"
       container-image: ghcr.io/zhongyuli2026/shiny-scvizapp:latest
       port: 3838
-    - id: 024_optgroup_selectize
-      display-name: "optgroup"
-      description: "Option groups for selectize input."
-      container-image: ghcr.io/zhongyuli2026/shiny-024-optgroup-selectize:latest
-      port: 3838
